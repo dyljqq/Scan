@@ -1,17 +1,24 @@
 //
 //  ViewController.swift
-//  Scan
+//  DbrDemo
 //
-//  Created by 季勤强 on 2021/7/17.
+//  Created by test on 2021/7/15.
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var scanImageView: UIImageView!
+    
+    let scan = Scan(callback: { result in
+        print("输出结果: \(result)")
+    })
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        super.viewDidLoad()        
+        scan.start(view: scanImageView)
     }
 
 
